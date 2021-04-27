@@ -8,19 +8,12 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Seja bem vindo!</h1>
+    {% if user.is_authenticated %}
+        <p>Ola {{ user.username }}</p>
     <a href="{% url 'logout' %}">Sair</a>
-
-    <ul>
-        {% for person in persons %}
-
-            <li>
-                <a href="{% url 'persons_update' person.id %}">{{ person.first_name }}</a>
-                <a href="{% url 'persons_delete' person.id %}">Deletar</a>
-            </li>
-
-        {% endfor %}
-    </ul>
-
-    <a href="{% url 'person_new' %}">Criar</a>
+    {% else %}
+    <a href="{% url 'login' %}">Entrar</a>
+    {% endif %}
 </body>
 </html>
