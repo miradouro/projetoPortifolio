@@ -1,6 +1,25 @@
-<h2>Login</h2>
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block title %}Pagina de login{% endblock %}
+
+{% block main %}
+
+    <h2>Login</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Entrar</button>
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-info">Entrar</button>
     </form>
+
+{% endblock %}
+
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Desenvolvido por Miradouro</span>
+        </div>
+    </footer>
+{% endblock %}

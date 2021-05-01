@@ -1,26 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <a href="{% url 'logout' %}">Sair</a>
+{% extends 'base.html' %}
 
-    <ul>
-        {% for person in persons %}
+{% block title %}Administração{% endblock %}
 
-            <li>
-                <a href="{% url 'persons_update' person.id %}">{{ person.first_name }}</a>
-                <a href="{% url 'persons_delete' person.id %}">Deletar</a>
-            </li>
+{% block main %}
 
-        {% endfor %}
-    </ul>
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                {% for person in persons %}
 
-    <a href="{% url 'person_new' %}">Criar</a>
-</body>
-</html>
+                    <li class="list-group-item">
+                        <a href="{% url 'persons_update' person.id %}" style="text-decoration:none">{{ person.first_name }}</a>
+                        <a href="{% url 'persons_delete' person.id %}" class="btn btn-danger" style="float: right;">X</a>
+                    </li>
+
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            {% if user.is_authenticated %}
+            <p>Olá {{ user.username }}&nbsp;&nbsp;<a href="{% url 'logout' %}" class="btn btn-dark">Sair</a></p>
+
+            {% endif %}
+        </div>
+    </div>
+
+
+
+
+
+
+    <a href="{% url 'person_new' %}" class="btn btn-info">Criar</a>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Desenvolvido por Miradouro</span>
+        </div>
+    </footer>
+{% endblock %}
