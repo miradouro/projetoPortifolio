@@ -4,18 +4,25 @@
 
 {% block main %}
 
-    <div class="row">
-        <div class="col-sm">
-        </div>
-        <div class="col-6">
+    <div class="row" id="centra">
+        <div class="col">
             <h1>Seja bem vindo!</h1>
         </div>
-        <div class="col-sm">
+    </div>
+    <div class="row" id="centra">
+        <div class="col">
             {% if user.is_authenticated %}
-                <p>Ola {{ user.username }}</p>
-            <a href="{% url 'logout' %}" class="btn btn-dark">Sair</a>
+                <p>Olá {{ user.username }}</p>
+            <div class="row" id="centra">
+                <div class="col">
+                    <a href="{% url 'person_list' %}" class="btn btn-warning">Lista</a>
+                </div>
+                <div class="col">
+                    <a href="{% url 'logout' %}" class="btn btn-danger">Sair</a>
+                </div>
+            </div>
             {% else %}
-            <a href="{% url 'login' %}" class="btn btn-dark">Entrar</a>
+            <br/><a href="{% url 'login' %}" class="btn btn-dark">Entrar</a>
             {% endif %}
         </div>
     </div>

@@ -1,0 +1,16 @@
+#geral {
+    background: #E6E6FA;
+    padding: 20px;
+    border: 2px solid #fff;
+	border-radius: 10px;
+}
+#gerall {
+    background: #E6E6FA;
+}
+#borda {
+    padding: 1rem;
+}
+#centra{
+    text-align: center;
+    float: center;
+}
