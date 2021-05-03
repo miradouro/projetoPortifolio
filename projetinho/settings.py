@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['rmb-clientes.herokuapp.com']
+ALLOWED_HOSTS = ['rmb-clientes.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -136,7 +136,7 @@ MEDIA_ROOT = 'media'
 
 LOGIN_URL = '/login/'
 
-LOGIN_REDIRECT_URL = 'person_list'
+LOGIN_REDIRECT_URL = 'home'
 
 STATICFILES_DIRS = [
     'statics',
